@@ -24,10 +24,16 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const onSaveExpenseData = (expense) => {
+    console.log("In App");
+    console.log(expense, "expense");
+  };
+
   return (
     <>
       <h2>Let's get started!</h2>
-      <CreateExpense />
+      <CreateExpense onAddExpense={onSaveExpenseData} />
       <Expenses items={expenses} />
     </>
   );
