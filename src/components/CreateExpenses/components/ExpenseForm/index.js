@@ -22,9 +22,9 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     event.preventDefault();
 
     const expenseData = {
-      updatedTitle: title,
-      updatedAmount: amount,
-      updatedDate: new Date(date).toLocaleDateString(),
+      title: title,
+      amount: +amount,
+      date: new Date(date),
     };
 
     onSaveExpenseData(expenseData);
@@ -33,6 +33,8 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     setAmount("");
     setDate("");
   };
+
+  const buttonState = title.length > 0 && amount.length > 0;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -63,7 +65,9 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit">Add Expense</button>
+        <button type="submit" disabled={!buttonState}>
+          Add Expense
+        </button>
       </div>
     </form>
   );

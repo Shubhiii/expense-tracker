@@ -4,6 +4,7 @@ import Card from "../ExpenseCard";
 import "./index.css";
 
 const ExpenseItem = ({ date, title, amount }) => {
+  // console.log(date, title, amount, "date, title, amount");
   return (
     <Card className="expense-item">
       <ExpenseDate expenseDate={date} />

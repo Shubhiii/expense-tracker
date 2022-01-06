@@ -10,7 +10,7 @@ const CreateExpense = ({ onAddExpense }) => {
       id: count,
     };
 
-    setCount(count + 1);
+    setCount((prevState) => prevState + 1);
 
     onAddExpense(expenseData);
   };
